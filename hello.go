@@ -15,21 +15,36 @@ func main() {
 	fmt.Println("It's over", string(os.Args[1]), name, test)
 		
 	fmt.Println("Hello World!")
-	_, exists := powers("goku")
+	param1, exists := powers("goku")
 	if exists == false {
 		// handle this error case
-		fmt.Println("false")
+		fmt.Println(exists)
+		fmt.Println(param1)
 	}
+	gokus := SetupGoku()
+	fmt.Println(gokus.Name)
+	taco := Saiyan{Name: "taco man"}
+	fmt.Println(taco.Name)
+
 }
+
 func getPower() string{
 	return "this many"
 }
-func log(message string) {
-	
+func SetupGoku() Saiyan{
+	goku := Saiyan{
+		Name: "Goku",
+		Power: 9000,
+	}
+	return goku
 }
 func add(a int, b int) int {
 	return 10
 }
 func powers(name string) (int, bool) {
 	return 10,false
+}
+type Saiyan struct {
+	Name string
+	Power int
 }
